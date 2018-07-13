@@ -25,3 +25,28 @@ function deleteRow(i){
 </body>
  
 </html>
+
+
+
+
+
+
+
+
+
+	onload = function() {
+    if (!document.getElementsByTagName || !document.createTextNode) return;
+    var rows = document.getElementById('myTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    for (i = 0; i < rows.length; i++) {
+        rows[i].onclick = function() {
+            var ind = this.rowIndex;
+        }
+    }
+	function deleteRow(i){
+    document.getElementById('myTable').deleteRow(i)
+	}
+	var $salvar = document.getElementById('danger');
+	var $table = document.getElementById('myTable');
+	$table.addEventListener('click',function(){
+		
+	});
