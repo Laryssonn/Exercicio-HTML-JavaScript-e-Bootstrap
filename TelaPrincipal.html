@@ -8,6 +8,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="estiloTelaPrincipal.css"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
 <body>
 	<style>
@@ -59,10 +60,10 @@
 								<td>Kg</td>
 								<td>5,50</td>
 								<td> 
-									<button type="button"class="btn btn-primary">
+									<button type="button"class="btn btn-primary btn-edit"data-toggle="modal" data-target="#modalEdit">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
-									<button onclick="removeElement(this)"  class="btn btn-danger"id="danger">
+									<button  class="btn btn-danger"id="danger">
 										<i class="glyphicon glyphicon-trash"></i>		
 									</button>
 								</td>
@@ -75,7 +76,7 @@
 									<button class="btn btn-primary">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
-									<button onclick="removeElement(this)"  class="btn btn-danger"id="danger">
+									<button class="btn btn-danger"id="danger">
 										<i class="glyphicon glyphicon-trash"></i>		
 									</button>
 								</td>								
@@ -85,10 +86,10 @@
 								<td>Kg</td>
 								<td>1,99</td>
 								<td> 
-									<button class="btn btn-primary" id="primary">
+									<button class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"id="primary">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
-									<button onclick="removeElement(this)"  class="btn btn-danger"id="danger">
+									<button  class="btn btn-danger"id="danger">
 										<i class="glyphicon glyphicon-trash"></i>		
 									</button>
 								</td>
@@ -98,10 +99,10 @@
 								<td>Kg</td>
 								<td>2,99</td>
 								<td id="copiar"> 
-									<button class="btn btn-primary">
+									<button onclick="Editar()" class="btn btn-primary">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
-									<button onclick="removeElement(this)"  class="btn btn-danger" id="danger1">
+									<button class="btn btn-danger" id="danger1">
 										<i class="glyphicon glyphicon-trash"></i>		
 									</button>
 								</td>
@@ -117,7 +118,7 @@
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
 							</button>
-							<h4 class="modal-title">Modal Title</h4>
+							<h4 class="modal-title">Cadastrar Produto</h4>
 						</div>
 						<div class="modal-body">
 							<h4>Descrição</h4>
@@ -142,101 +143,43 @@
 					</div>		
 				</div>	
 			</div>
+			<!--MODAL.2-->
+			<div class="modal fade" id="modalEdit">
+				<div class="modal-dialog modal-lg ">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title">Editar Produto</h4>
+						</div>
+						<div class="modal-body">
+							<h4>Descrição</h4>
+							<input type="text" id="inputDescEdit"class="form-control" placeholder="Descrição" required>
+							<h4>Unidade</h4>
+							 <div class="row">
+								<div class="col-sm-3">
+									<select class="form-control" id="uniEdit">
+										<option>Uni</option>
+										<option>Kg</option>
+										<option>Gr</option>
+									</select>
+								</div>
+							</div>
+							<h4>Preço</h4>
+							<input type="text" id="inputPrecoEdit"class="form-control" placeholder="Preço" required>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+							<button  type="button" id="salvar"class="btn btn-primary">Salvar Produto</button>
+						</div>
+					</div>		
+				</div>	
+			</div>
 		</div>
 	</div>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script>	
-	var cod = 4;
-	
-	
-	
-	
-	
-	
-	var $salvar = document.getElementById('danger');
-	var $table = document.getElementById('myTable');
-	var $modal = document.getElementById('myModal');
-	$table.addEventListener('click',function(){
-		
-	});
-
-	
-	
-	function removeElement(elemento) {
-    var objTr = $(elemento).parent('td').parent('tr');
-    objTr.remove()
-	}
-	
-	var salva =document.getElementById('danger1');
-	var campo = document.getElementById('inputPreco');
-	
-	
-	function teste() {
-    alert("Deu Certo!");
-	}
-	
-	
-	
-	var $salvar = document.getElementById('salvar');
-	$salvar.addEventListener('click',function(){
-		inserirLinhaTabela();
-		$('#myModal').modal('hide');
-	})		
-	
-	
-	
-		
-	  // Função responsável por inserir linhas na tabela
-        function inserirLinhaTabela() {
-			 
-			cod = cod +1;
-			var desc = document.getElementById('inputDesc');
-			var unidade =document.getElementById('uni');
-			var preco = document.getElementById('inputPreco');
-			
-			
-			
-            // Captura a referência da tabela com id “minhaTabela”
-            var table = document.getElementById("myTable");
-            // Captura a quantidade de linhas já existentes na tabela
-            var numOfRows = table.rows.length;
-      
-            var numOfCols = table.rows[numOfRows-1].cells.length;
-
-            // Insere uma linha no fim da tabela.
-            var newRow = table.insertRow(numOfRows);
- 
-            // Faz um loop para criar as colunas
-            for (var j = 0; j < numOfCols; j++) {
-                newCell = newRow.insertCell(j);
-				switch (j) {
-					case 0:
-						newCell.innerHTML = cod;
-					break;
-					case 1:					
-						newCell.innerHTML = desc.value;
-					break;
-					case 2:
-						newCell.innerHTML = uni.value;
-					break;
-					case 3:						
-						newCell.innerHTML = preco.value;
-					break;	
-					case 4:
-						newCell.innerHTML =[
-								'<button class="btn btn-primary">',
-									'<span class=" glyphicon glyphicon-pencil"></span>',		
-								'</button>',
-								'<button onclick="removeElement(this)"  class="btn btn-danger" id="teste">',
-								'<i class="glyphicon glyphicon-trash"></i>',		
-								'</button>'	 
-						].join("\n");
-					break;
-				}
-            }
-        } 
-</script>
+<script type="text/javascript" src="funcoes.js"></script>
 
 <footer id="rodape">
 <p>Copyright &copy; 2018 - by Larysson Nascimento <br/>
