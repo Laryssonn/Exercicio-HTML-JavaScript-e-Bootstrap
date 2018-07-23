@@ -1,0 +1,52 @@
+<html>
+<head>
+<script type="text/javascript">
+function deleteRow(i){
+    document.getElementById('myTable').deleteRow(i)
+}
+</script>
+</head>
+ 
+<body>
+<table id="myTable" border="1">
+<tr>
+  <td>Row 1</td>
+  <td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td>
+</tr>
+<tr>
+  <td>Row 2</td>
+  <td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td>
+</tr>
+<tr>
+  <td>Row 3</td>
+  <td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td>
+</tr>
+</table>
+</body>
+ 
+</html>
+
+
+
+
+
+
+
+
+
+	onload = function() {
+    if (!document.getElementsByTagName || !document.createTextNode) return;
+    var rows = document.getElementById('myTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    for (i = 0; i < rows.length; i++) {
+        rows[i].onclick = function() {
+            var ind = this.rowIndex;
+        }
+    }
+	function deleteRow(i){
+    document.getElementById('myTable').deleteRow(i)
+	}
+	var $salvar = document.getElementById('danger');
+	var $table = document.getElementById('myTable');
+	$table.addEventListener('click',function(){
+		
+	});

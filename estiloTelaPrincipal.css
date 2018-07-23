@@ -1,5 +1,5 @@
 div#myNavbar{
-	background-color:#black;
+	background-color: black;
 }
 .mesmo-tamanho {
 	width: 100%;	
@@ -12,11 +12,14 @@ footer#rodape{
 
 }	
 footer#rodape p {
-	
+		margin: 50px;
 		text-align: center;
 	
 }	
 .table .btn{
-	float = rigth;
+	float: rigth;
 	
+}
+div.container{
+	height: 620px;
 }

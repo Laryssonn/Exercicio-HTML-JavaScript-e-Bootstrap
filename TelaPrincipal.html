@@ -11,13 +11,9 @@
 
 </head>
 <body>
-	<style>
-		
-      
-	</style>
 	<div class="jumbotron">
 		<div class="container">
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-inverse"id="myNavbar">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -60,7 +56,7 @@
 								<td>Kg</td>
 								<td>5,50</td>
 								<td> 
-									<button type="button"class="btn btn-primary btn-edit"data-toggle="modal" data-target="#modalEdit">
+									<button class="btn btn-primary btn-edit"data-toggle="modal" data-target="#modalEdit">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
 									<button  class="btn btn-danger"id="danger">
@@ -73,7 +69,7 @@
 								<td>Kg</td>
 								<td>2,25</td>		
 								<td> 
-									<button class="btn btn-primary">
+									<button class="btn btn-primary btn-edit"data-toggle="modal" data-target="#modalEdit">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
 									<button class="btn btn-danger"id="danger">
@@ -86,7 +82,7 @@
 								<td>Kg</td>
 								<td>1,99</td>
 								<td> 
-									<button class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"id="primary">
+									<button class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
 									<button  class="btn btn-danger"id="danger">
@@ -99,7 +95,7 @@
 								<td>Kg</td>
 								<td>2,99</td>
 								<td id="copiar"> 
-									<button onclick="Editar()" class="btn btn-primary">
+									<button class="btn btn-primary btn-edit"data-toggle="modal" data-target="#modalEdit">
 										<span class=" glyphicon glyphicon-pencil"></span>		
 									</button>
 									<button class="btn btn-danger" id="danger1">
@@ -170,7 +166,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-							<button  type="button" id="salvar"class="btn btn-primary">Salvar Produto</button>
+							<button  type="button" id="salvarEdit"class="btn btn-primary">Salvar Produto</button>
 						</div>
 					</div>		
 				</div>	
